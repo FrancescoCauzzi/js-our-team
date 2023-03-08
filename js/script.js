@@ -85,9 +85,7 @@ function printTeamInfoInPage(team, containerEl) {
   }
 }
 
-printTeamInfo(team);
-printTeamInfoInPage(team, myOutputUlEl);
-// Creo una funzione che mi genera le mie 6 cards
+// Creo una funzione che mi genera le mie 6 cards seguendo il template di Bootstrap
 {
   /* <div class="card" >
   <img src="" class="card-img-top" alt="...">
@@ -122,4 +120,6 @@ function generateCards(arr, containerEl) {
   }
 }
 
+printTeamInfo(team);
+printTeamInfoInPage(team, myOutputUlEl);
 generateCards(team, myOutputDiv);

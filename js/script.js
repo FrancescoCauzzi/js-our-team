@@ -69,13 +69,17 @@ function printTeamInfo(team) {
   }
 }
 
-function printTeamInfoInPage(team, pageElement) {
+function printTeamInfoInPage(team, containerEl) {
   for (let i = 0; i < team.length; i++) {
     const worker = team[i];
-    pageElement.innerHTML = `Worker ${i + 1}:`;
+
+    let myLi = document.createElement("li");
     for (const key in worker) {
-      pageElement.innerHTML = `${key}: ${worker[key]}`;
+      let mySpan = document.createElement("span");
+      mySpan.innerHTML = `Worker ${i + 1}: ${key}: ${worker[key]}`;
+      myLi.append(mySpan);
     }
+    myOutputEl.append(myLi);
   }
 }
 

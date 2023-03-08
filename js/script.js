@@ -74,12 +74,13 @@ function printTeamInfoInPage(team, containerEl) {
     const worker = team[i];
 
     let myLi = document.createElement("li");
+    myLi.innerHTML = `Worker ${i + 1}: `;
     for (const key in worker) {
       let mySpan = document.createElement("span");
-      mySpan.innerHTML = `Worker ${i + 1}: ${key}: ${worker[key]}`;
+      mySpan.innerHTML = `${key}: ${worker[key]} `;
       myLi.append(mySpan);
     }
-    myOutputEl.append(myLi);
+    containerEl.append(myLi);
   }
 }
 

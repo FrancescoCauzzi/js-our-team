@@ -78,7 +78,8 @@ function printTeamInfoInPage(team, containerEl) {
     myLi.innerHTML = `Worker ${i + 1}: `;
     for (const key in worker) {
       let mySpan = document.createElement("span");
-      mySpan.innerHTML = `${key}: ${worker[key]} `;
+      // altro metodo element.innerHTML += `${key}: ${worker[key]}`
+      mySpan.innerHTML = ` ${key}: ${worker[key]}`;
       myLi.append(mySpan);
     }
     containerEl.append(myLi);
@@ -99,22 +100,27 @@ function printTeamInfoInPage(team, containerEl) {
 
 function generateCards(arr, containerEl) {
   for (let i = 0; i < arr.length; i++) {
+    // creo l'elemento div con la classe card di BS
     let myCardDiv = document.createElement("div");
     myCardDiv.classList.add("card");
     myCardDiv.style.width = `calc(100% / 3 * 1 - (20px / 3 *2));`;
-    let img = document.createElement("img");
-    img.setAttribute("src", `img/${arr[i].image}`);
-    myCardDiv.append(img);
+    myCardDiv.style.boxShadow = "3px 4px 6px";
     containerEl.append(myCardDiv);
+    // creo l'immagine da appendere all'elemento card e lo appendo al dic 'card'
+    let imgEl = document.createElement("img");
+    imgEl.setAttribute("src", `img/${arr[i].image}`);
+    myCardDiv.append(imgEl);
+    // creo l'elemento cardBody 'div' da appendere all'elemento di classe 'card'
     let cardBodyEl = document.createElement("div");
     cardBodyEl.classList.add("card-body");
     cardBodyEl.style.textAlign = "center";
     myCardDiv.append(cardBodyEl);
-    let cardBodyTitleEl = document.createElement("h5");
+    // creo l'elemento h4 e lo appendo all'elem 'cardBody'
+    let cardBodyTitleEl = document.createElement("h4");
     cardBodyTitleEl.innerHTML = `${arr[i].name}`;
     cardBodyEl.append(cardBodyTitleEl);
+    // creao l'elemento h6 e idem come sopra
     let cardBodySubTitle = document.createElement("h6");
-
     cardBodySubTitle.innerHTML = `${arr[i].role}`;
     cardBodyEl.append(cardBodySubTitle);
   }

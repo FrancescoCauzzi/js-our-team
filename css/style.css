@@ -10,6 +10,7 @@ body {
 
 .__output-div {
   gap: 20px;
+  /* box-shadow: 2px 4px 6px; */
 }
 
 p {
